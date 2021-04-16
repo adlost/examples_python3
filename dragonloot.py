@@ -9,11 +9,11 @@ def addToInventory(inventory, addeditem):
 		dirloot.update({i: addeditem.count(i)})
 
 	#тут творится магия)
-	# цикл переперает ключи из лута
+	# цикл перебирает ключи из лута
 	for k, v in dirloot.items():
 		var_loot = dirloot.get(k)
 		var_inv = inventory.get(k)
-		#проверяем есть ли в словаре ключ который есть в луте
+		#проверяем, есть ли в словаре ключ который есть в луте
 		#если ключа нет, переменной присвается значение 0   
 		if var_inv== None:
 			var_inv = 0
