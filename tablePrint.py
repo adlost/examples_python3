@@ -3,6 +3,7 @@ tableData = [['apple', 'orange', 'cherries', 'banana'],
 				['dogs', 'cats', 'moose', 'goose']]
 
 
+# Функция для поиска самого длиного списка
 def check_max_count_in_items(qwerty):
 	max_var = 0
 	for i in range(len(qwerty)):
@@ -12,19 +13,19 @@ def check_max_count_in_items(qwerty):
 	return max_var
 
 
-
-
+# Функция для вывода списков в виде таблицы
 def printTable(data):
 	varstring = ''
 	max_tab = check_max_count_in_items(data)
+	# цыкл по количеству макс. элементов
 	for i in range(max_tab):
+			# цыкл по количеству списков
 			for c in range(len(data)):
 				try:
 					varstring += str(data[c][i]).rjust(15)
 				except IndexError:
 					varstring += ' '.rjust(15)
 			varstring += '\n'
-
 	print(varstring)
 	
 
