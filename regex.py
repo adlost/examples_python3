@@ -5,14 +5,7 @@
 
 import pyperclip, re
 
-phoneRegex = re.compile(r'''(
-	(\d{3}|\(\d{3}\))?				# териториалньый код, может отсутсвовать или быть 1 раз, сотоять из 3-х цыфр, в скобках или без
-	(\s|-|\.)?						# разделитель, может отсутсвовать или быть 1 раз, в виде пробела, дефиса или точки
-	\d{3}							# первые 3 цифры
-	(\s|-|\.)						# разделитель, в виде пробела, дефиса или точки
-	\d{4}							# 5						    # 7последние 4 цифры
-	(\s*(ext|x|ext.)\s*\d{2,5})?	# добавочный номер
-	)''', re.VERBOSE)
+phoneRegex = re.compile(r'''((\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?)''', re.VERBOSE)
 
 #TODO: Создать регулярное выражение для адресов электронной почты
 
@@ -29,10 +22,7 @@ emailRegex = re.compile(r'''(
 text = str(pyperclip.paste())
 matches = []
 for groups in phoneRegex.findall(text):
-	print(groups)
-	phoneNum = '-'.join([groups[1], groups[3], groups[5]])
-	if groups[8] != ' ':
-		phoneNum += ' x' + groups[8]
+	phoneNum = '-'.join([groups[0]])
 	matches.append(phoneNum)
 for groups in emailRegex.findall(text):
 	matches.append(groups[0])
