@@ -22,8 +22,8 @@ emailRegex = re.compile(r'''(
 text = str(pyperclip.paste())
 matches = []
 for groups in phoneRegex.findall(text):
-	phoneNum = '-'.join([groups[0]])
-	matches.append(phoneNum)
+	matches.append(groups[0])
+
 for groups in emailRegex.findall(text):
 	matches.append(groups[0])
 
@@ -31,8 +31,8 @@ for groups in emailRegex.findall(text):
 #TODO: Скопировать результат в буфер обмена.
 
 if len(matches) > 0:
-	pyperclip.copy('\n'.join(matches))
+	pyperclip.copy(''.join(matches))
 	print('Скопировано в буфер обмена:')
-	print('\n'.join(matches))
+	print(''.join(matches))
 else:
-	print('ошибка')
+	print('Ошибка')
