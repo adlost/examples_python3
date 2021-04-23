@@ -1,6 +1,6 @@
 import os
 
-for folderName, subfolders, filenames in os.walk('/home/and/python/examples_python3'):
+for folderName, subfolders, filenames in os.walk('/home/l1/python/examples_python3'):
 	print ('Текущая директория - ' + folderName)
 
 	for subfolder in subfolders:
